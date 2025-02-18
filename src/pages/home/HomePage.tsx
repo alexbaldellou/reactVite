@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Transaction } from "../../interface/Transaction";
 import { HeaderPrices } from "../../components/headerPrices/HeaderPrices";
-import FormNewItem from "../../components/formNewItem/formNewItem";
+import FormNewItem from "../../components/formNewItem/FormNewItem";
 
 export const HomePage = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);

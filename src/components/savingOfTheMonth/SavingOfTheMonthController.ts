@@ -1,5 +1,5 @@
 import { Temporal } from "@js-temporal/polyfill";
-import { getTotal } from "../../utils/Utils";
+import { formatDateTemporal, getTotal } from "../../utils/Utils";
 import { SavingOfTheMonthProps } from "./SavingOfTheMonth"
 import { useEffect, useState } from "react";
 
@@ -15,7 +15,8 @@ export const SavingOfTheMonthController = (props: SavingOfTheMonthProps) => {
       }, [transactions]);
     
       const monthDate = (dateOr: string) => {
-        const date = Temporal.PlainDate.from(dateOr);
+        const formatDate = formatDateTemporal(dateOr);
+        const date = Temporal.PlainDate.from(formatDate);
         return date.month;
       };
       const pricePerMonth = () => {

@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { FormNewItemProps } from './formNewItem';
+import { FormNewItemProps } from './FormNewItem';
 import { Transaction } from '../../interface/Transaction';
 import { generateId } from '../../utils/Utils';
 
@@ -30,7 +30,8 @@ const FormNewItemController = (props: FormNewItemProps) => {
       
   return {
     handleSubmit,
-    handleChange
+    handleChange,
+    onChangeTransactions
   }
 }
 
