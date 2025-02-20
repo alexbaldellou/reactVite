@@ -29,6 +29,7 @@ const FormNewItemController = (props: FormNewItemProps) => {
 
       
   return {
+    transactions,
     handleSubmit,
     handleChange,
     onChangeTransactions

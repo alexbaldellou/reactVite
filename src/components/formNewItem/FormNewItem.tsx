@@ -8,7 +8,7 @@ export interface FormNewItemProps {
 }
 
 const FormNewItem = (props: FormNewItemProps) => {
-  const { handleSubmit, handleChange, onChangeTransactions } =
+  const { transactions, handleSubmit, handleChange, onChangeTransactions } =
     FormNewItemController(props);
   return (
     <div className="bg-white p-4 shadow rounded-lg flex space-x-3 w-full">
@@ -68,7 +68,10 @@ const FormNewItem = (props: FormNewItemProps) => {
           Guardar
         </button>
       </form>
-      <ImportCSV onChangeTransaction={onChangeTransactions} />
+      <ImportCSV
+        onChangeTransaction={onChangeTransactions}
+        transactions={transactions}
+      />
     </div>
   );
 };
