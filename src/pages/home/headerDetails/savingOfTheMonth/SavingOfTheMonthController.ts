@@ -2,6 +2,7 @@ import { Temporal } from "@js-temporal/polyfill";
 import { SavingOfTheMonthProps } from "./SavingOfTheMonth"
 import { useEffect, useState } from "react";
 import { formatDateTemporal, getTotal } from "../../../../utils/Utils";
+import { Transaction } from "../../../../interface/Transaction";
 
 export const SavingOfTheMonthController = (props: SavingOfTheMonthProps) => {
     const { transactions } = props;
@@ -10,7 +11,8 @@ export const SavingOfTheMonthController = (props: SavingOfTheMonthProps) => {
     
       useEffect(() => {
         if (transactions.length > 0) {
-          pricePerMonth();
+          const transactionsAll = transactions.filter((trans) => trans.date !== undefined)
+          pricePerMonth(transactionsAll);
         }
       }, [transactions]);
     
@@ -19,8 +21,8 @@ export const SavingOfTheMonthController = (props: SavingOfTheMonthProps) => {
         const date = Temporal.PlainDate.from(formatDate);
         return date.month;
       };
-      const pricePerMonth = () => {
-        const priceMonthNow = transactions.filter(
+      const pricePerMonth = (tr:Transaction[]) => {
+        const priceMonthNow = tr.filter(
           (trans) => monthDate(trans.date) === now.month && trans.type === "gasto"
         );
         setTotalPrice(getTotal(priceMonthNow));

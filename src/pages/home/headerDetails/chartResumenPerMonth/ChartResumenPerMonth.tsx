@@ -2,6 +2,8 @@ import { Transaction } from "../../../../interface/Transaction";
 import { Histogram } from "../../../../components/charts/histogram/Histogram";
 import { useEffect, useState } from "react";
 import { DataByMonth } from "../../../../interface/ChartResumenPerMonth.interface";
+import { Temporal } from "@js-temporal/polyfill";
+import { formatDateTemporal } from "../../../../utils/Utils";
 
 interface ChartResumenPerMonthProps {
   data: Transaction[];
@@ -10,16 +12,20 @@ interface ChartResumenPerMonthProps {
 const ChartResumenPerMonth = (props: ChartResumenPerMonthProps) => {
   const { data } = props;
   const [dataByMonth, setDataByMonth] = useState<DataByMonth[]>([]);
+
   useEffect(() => {
     const e = getIncomeSpentByMonth();
-    setDataByMonth(e);
+    setDataByMonth(e.slice(0, 2));
   }, [data]);
 
   const getIncomeSpentByMonth = () => {
     const monthArr: Record<string, DataByMonth> = {};
+    const transactionsAll = data.filter((trans) => trans.date !== undefined);
 
-    data.forEach(({ date, price, type }) => {
-      const month = date.substring(0, 7);
+    transactionsAll.forEach(({ date, price, type }) => {
+      const dateTemp = Temporal.PlainDate.from(formatDateTemporal(date));
+      const month = dateTemp.toLocaleString("es-ES", { month: "long" });
+
       if (!monthArr[month]) {
         monthArr[month] = { month, ingresos: 0, gastos: 0 };
       }
@@ -32,7 +38,6 @@ const ChartResumenPerMonth = (props: ChartResumenPerMonthProps) => {
 
     return Object.values(monthArr);
   };
-  console.log("dataByMonth", dataByMonth);
   return (
     <Histogram
       data={dataByMonth}
