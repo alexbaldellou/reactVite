@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PriceTotalProps } from "./PriceTotal";
-import { getTotal } from "../../utils/Utils";
+import { getTotal } from "../../../../utils/Utils";
 
 export const PriceTotalController = (props:PriceTotalProps) => {
     const { transactions } = props;

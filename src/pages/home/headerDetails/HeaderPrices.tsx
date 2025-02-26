@@ -1,6 +1,7 @@
-import { Transaction } from "../../interface/Transaction";
-import { PriceTotal } from "../priceTotal/PriceTotal";
-import { SavingOfTheMonth } from "../savingOfTheMonth/SavingOfTheMonth";
+import { Transaction } from "../../../interface/Transaction";
+import ChartResumenPerMonth from "./chartResumenPerMonth/ChartResumenPerMonth";
+import { PriceTotal } from "./priceTotal/PriceTotal";
+import { SavingOfTheMonth } from "./savingOfTheMonth/SavingOfTheMonth";
 
 interface HeaderPricesProps {
   transactions: Transaction[];
@@ -22,9 +23,9 @@ export const HeaderPrices = (props: HeaderPricesProps) => {
           <SavingOfTheMonth transactions={transactions} />
         </p>
       </div>
-      <div className="bg-gray-800 p-4 rounded-lg">
+      <div className="bg-gray-800 rounded-lg">
         <p className="text-gray-400"></p>
-        <p className="text-xl font-bold"></p>
+        <ChartResumenPerMonth data={transactions} />
       </div>
       <div className="bg-gray-800 p-4 rounded-lg">
         <p className="text-gray-400"></p>

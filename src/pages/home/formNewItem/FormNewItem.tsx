@@ -1,6 +1,6 @@
+import { ImportCSV } from "../../../components/importCSV/ImportCSV";
+import { Transaction } from "../../../interface/Transaction";
 import FormNewItemController from "./FormNewItemController";
-import { Transaction } from "../../interface/Transaction";
-import { ImportCSV } from "../importCSV/ImportCSV";
 
 export interface FormNewItemProps {
   transactions: Transaction[];

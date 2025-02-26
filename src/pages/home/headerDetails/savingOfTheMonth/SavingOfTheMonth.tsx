@@ -1,4 +1,4 @@
-import { Transaction } from "../../interface/Transaction";
+import { Transaction } from "../../../../interface/Transaction";
 import { SavingOfTheMonthController } from "./SavingOfTheMonthController";
 
 export interface SavingOfTheMonthProps {

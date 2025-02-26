@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Transaction } from "../../interface/Transaction";
-import { HeaderPrices } from "../../components/headerPrices/HeaderPrices";
-import FormNewItem from "../../components/formNewItem/FormNewItem";
+import { HeaderPrices } from "./headerDetails/HeaderPrices";
+import FormNewItem from "./formNewItem/FormNewItem";
 import ViewTransactions from "./viewTransactions/ViewTransactions";
 
 export const HomePage = () => {

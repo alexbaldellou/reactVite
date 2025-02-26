@@ -1,8 +1,4 @@
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/outline";
 import { Transaction } from "../../../interface/Transaction";
 import { ViewTransactionsController } from "./ViewTransactionsController";
 import Pagination from "../../../components/pagination/Pagination";

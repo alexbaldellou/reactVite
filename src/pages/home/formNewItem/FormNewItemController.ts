@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { FormNewItemProps } from './FormNewItem';
-import { Transaction } from '../../interface/Transaction';
-import { generateId } from '../../utils/Utils';
+import { Transaction } from '../../../interface/Transaction';
+import { generateId } from '../../../utils/Utils';
 
 
 const FormNewItemController = (props: FormNewItemProps) => {
