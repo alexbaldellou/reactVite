@@ -6,7 +6,7 @@ import Papa from "papaparse";
 
 export const ImportCSVController = (props: ImportCSVProps) => {
     const { transactions, onChangeTransaction } = props;
-    const [csvData, setCsvData] = useState([]);
+    const [csvData, setCsvData] = useState<Transaction[]>([]);
     const fileInputRef = useRef<HTMLInputElement | null>(null);
   
     useEffect(() => {
@@ -24,6 +24,7 @@ export const ImportCSVController = (props: ImportCSVProps) => {
       }
       if (file) {
         Papa.parse(file, {
+          encoding: "UTF-8",
           complete: (result: any) => {
             setCsvData(result.data);
           },

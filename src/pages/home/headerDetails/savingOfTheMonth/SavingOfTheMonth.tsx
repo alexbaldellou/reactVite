@@ -6,5 +6,5 @@ export interface SavingOfTheMonthProps {
 }
 export const SavingOfTheMonth = (props: SavingOfTheMonthProps) => {
   const { totalPrice } = SavingOfTheMonthController(props);
-  return `${totalPrice} €`;
+  return `${totalPrice ? totalPrice.toLocaleString("es-ES") : "0"} €`;
 };

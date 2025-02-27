@@ -7,5 +7,5 @@ export interface PriceTotalProps {
 export const PriceTotal = (props: PriceTotalProps) => {
   const { totalPrice } = PriceTotalController(props);
 
-  return `${totalPrice} €`;
+  return `${totalPrice ? totalPrice.toLocaleString("es-ES") : 0} €`;
 };
