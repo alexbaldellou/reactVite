@@ -9,9 +9,9 @@ Currently, two official plugins are available:
 
 ## Versiones utilizados
 
-- yarn version v1.22.22
+yarn version v1.22.22
 
-- node.js version v23.4.0
+node.js version v23.4.0
 
 ## Expanding the ESLint configuration
 
